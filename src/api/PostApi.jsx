@@ -9,9 +9,12 @@ import axios from "axios";
 
 
  // Get Method
-
- const getPosts = () =>{
+ export const getPosts = () =>{
     return api.get("/posts");
  }
  
-export default getPosts
+// Delete Method
+
+export const deletePost = (id) =>{
+   return api.delete(`posts/${id}`);
+}
