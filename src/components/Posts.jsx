@@ -1,9 +1,10 @@
 import { useEffect,useState } from "react";
 import { deletePost,getPosts } from "../api/Postapi";
+import Form from "./Form";
 
 function Posts() {
     const [data,setData] = useState([]);
-    const getPostData = async () => {
+    const getPostData = async () => { 
         const res = await getPosts();
         console.log(res.data);
         setData(res.data);
@@ -31,7 +32,9 @@ function Posts() {
 
     return (
         <>
-        <h1>DATA is here</h1>
+        <section>
+            <Form data={data} setData={setData} />
+        </section>
         <ol>
             {
                 data.map((curData) => {
